@@ -1,286 +1,168 @@
-/* =========================================================
-   PROFESSOR MATUNDURA WEBSITE
-   Interactive effects
-   Built by Calvin
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
+    /* Celebration fund animation */
+    const fundAmount = document.getElementById("fundAmount");
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
 
-/* ---------------------------------------------------------
-   Simple click sound
-   Browsers only allow this after the user interacts.
-   --------------------------------------------------------- */
+    if (fundAmount) {
 
-function playClickSound() {
-    try {
-        const AudioContext =
-            window.AudioContext || window.webkitAudioContext;
+        let amount = 15000;
+        const target = 1000000;
 
-        if (!AudioContext) {
-            return;
+        function updateFund() {
+
+            if (amount < target) {
+
+                amount += 500;
+
+                if (amount > target) {
+                    amount = target;
+                }
+
+                fundAmount.textContent =
+                    "KES " + amount.toLocaleString("en-KE");
+
+                const percentage = (amount / target) * 100;
+
+                if (progressFill) {
+                    progressFill.style.width =
+                        Math.min(percentage, 100) + "%";
+                }
+
+                if (progressText) {
+                    progressText.textContent =
+                        percentage.toFixed(1) + "%";
+                }
+            }
         }
 
-        const audio = new AudioContext();
-        const oscillator = audio.createOscillator();
-        const gain = audio.createGain();
-
-        oscillator.type = "sine";
-        oscillator.frequency.setValueAtTime(520, audio.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(
-            780,
-            audio.currentTime + 0.08
-        );
-
-        gain.gain.setValueAtTime(0.0001, audio.currentTime);
-        gain.gain.exponentialRampToValueAtTime(
-            0.08,
-            audio.currentTime + 0.01
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            0.0001,
-            audio.currentTime + 0.12
-        );
-
-        oscillator.connect(gain);
-        gain.connect(audio.destination);
-
-        oscillator.start();
-        oscillator.stop(audio.currentTime + 0.13);
-
-    } catch (error) {
-        console.log("Audio unavailable.");
-    }
-}
-
-
-/* ---------------------------------------------------------
-   Confetti
-   --------------------------------------------------------- */
-
-function launchConfetti(amount = 70) {
-
-    const pieces = [
-        "✦",
-        "◆",
-        "●",
-        "✧",
-        "★"
-    ];
-
-    for (let i = 0; i < amount; i++) {
-
-        const piece = document.createElement("div");
-
-        piece.className = "confetti";
-
-        piece.textContent =
-            pieces[Math.floor(Math.random() * pieces.length)];
-
-        piece.style.left =
-            Math.random() * 100 + "vw";
-
-        piece.style.top =
-            "-30px";
-
-        piece.style.fontSize =
-            (8 + Math.random() * 12) + "px";
-
-        piece.style.animationDelay =
-            Math.random() * 0.8 + "s";
-
-        piece.style.opacity =
-            0.5 + Math.random() * 0.5;
-
-        document.body.appendChild(piece);
-
-        setTimeout(() => {
-            piece.remove();
-        }, 3500);
-    }
-}
-
-
-/* ---------------------------------------------------------
-   Add sound to buttons
-   --------------------------------------------------------- */
-
-document.addEventListener("click", function (event) {
-
-    const clickable =
-        event.target.closest("a, button");
-
-    if (!clickable) {
-        return;
+        /*
+         * Slow enough to look like an animated
+         * website counter rather than jumping.
+         */
+        setInterval(updateFund, 1000);
     }
 
-    playClickSound();
-});
 
+    /* YES surprise */
 
-/* ---------------------------------------------------------
-   Celebration progress counter
-   This is a visual celebration/project meter.
-   It is NOT a bank account or financial balance.
-   --------------------------------------------------------- */
+    const yesButton = document.getElementById("yesButton");
+    const finalMessage = document.getElementById("finalMessage");
 
-function startCelebrationCounter() {
+    if (yesButton && finalMessage) {
 
-    const counter =
-        document.getElementById("celebrationCounter");
+        yesButton.addEventListener("click", function () {
 
-    const progress =
-        document.getElementById("progressFill");
+            finalMessage.classList.add("show");
 
-    if (!counter || !progress) {
-        return;
-    }
+            yesButton.textContent = "LET'S GO! 🚀";
 
-    let amount = 0;
+            playCelebrationSound();
 
-    const target = 1000000;
+            finalMessage.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
 
-    const step = 5000;
-
-    const interval = setInterval(function () {
-
-        amount += step;
-
-        if (amount >= target) {
-            amount = target;
-            clearInterval(interval);
-
-            setTimeout(function () {
-                launchConfetti(100);
-            }, 400);
-        }
-
-        counter.textContent =
-            "KES " + amount.toLocaleString("en-KE");
-
-        const percentage =
-            (amount / target) * 100;
-
-        progress.style.width =
-            percentage + "%";
-
-    }, 100);
-}
-
-
-/* ---------------------------------------------------------
-   Start counter when journey page loads
-   --------------------------------------------------------- */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        startCelebrationCounter();
+        });
 
     }
-);
 
 
-/* ---------------------------------------------------------
-   Final page YES button
-   --------------------------------------------------------- */
+    /* NO button — gentle playful movement */
 
-const yesButton =
-    document.getElementById("yesButton");
+    const noButton = document.getElementById("noButton");
 
-if (yesButton) {
+    if (noButton) {
 
-    yesButton.addEventListener(
-        "click",
-        function () {
+        noButton.addEventListener("mouseenter", function () {
 
-            playClickSound();
+            const movement = 35;
 
-            launchConfetti(120);
+            const x =
+                (Math.random() * movement * 2) - movement;
 
-            const message =
-                document.getElementById("finalReveal");
+            const y =
+                (Math.random() * movement * 2) - movement;
 
-            if (message) {
+            noButton.style.transform =
+                "translate(" + x + "px, " + y + "px)";
 
-                message.textContent =
-                    "You finally clicked it 😂❤️. Big Bro, this whole little website was simply a reminder that your journey is worth celebrating. Keep going — the best chapters are still ahead.";
+        });
 
-                message.classList.add("revealed");
+        noButton.addEventListener("click", function () {
 
+            noButton.textContent = "Are you sure? 😂";
+
+            noButton.style.transform = "translateY(-3px)";
+
+        });
+
+    }
+
+
+    /* Small celebration sound using Web Audio */
+
+    function playCelebrationSound() {
+
+        try {
+
+            const AudioContext =
+                window.AudioContext ||
+                window.webkitAudioContext;
+
+            if (!AudioContext) {
+                return;
             }
 
+            const context = new AudioContext();
+
+            const notes = [523.25, 659.25, 783.99];
+
+            notes.forEach(function (frequency, index) {
+
+                const oscillator =
+                    context.createOscillator();
+
+                const gain =
+                    context.createGain();
+
+                oscillator.frequency.value = frequency;
+                oscillator.type = "sine";
+
+                gain.gain.setValueAtTime(
+                    0.0001,
+                    context.currentTime
+                );
+
+                gain.gain.exponentialRampToValueAtTime(
+                    0.12,
+                    context.currentTime + 0.03 + index * 0.08
+                );
+
+                gain.gain.exponentialRampToValueAtTime(
+                    0.0001,
+                    context.currentTime + 0.5 + index * 0.08
+                );
+
+                oscillator.connect(gain);
+                gain.connect(context.destination);
+
+                oscillator.start(
+                    context.currentTime + index * 0.08
+                );
+
+                oscillator.stop(
+                    context.currentTime + 0.6 + index * 0.08
+                );
+
+            });
+
+        } catch (error) {
+            console.log("Sound unavailable.");
         }
-    );
-}
 
-
-/* ---------------------------------------------------------
-   Final page NO button
-   Playful movement — stays inside the screen.
-   --------------------------------------------------------- */
-
-const noButton =
-    document.getElementById("noButton");
-
-if (noButton) {
-
-    noButton.addEventListener(
-        "mouseenter",
-        function () {
-
-            moveNoButton();
-
-        }
-    );
-
-    noButton.addEventListener(
-        "click",
-        function () {
-
-            moveNoButton();
-
-        }
-    );
-}
-
-
-function moveNoButton() {
-
-    const button =
-        document.getElementById("noButton");
-
-    if (!button) {
-        return;
     }
 
-    const container =
-        document.querySelector(".final-buttons");
-
-    if (!container) {
-        return;
-    }
-
-    const containerWidth =
-        container.clientWidth;
-
-    const buttonWidth =
-        button.offsetWidth;
-
-    const maxMove =
-        Math.max(
-            0,
-            containerWidth - buttonWidth - 10
-        );
-
-    const randomMove =
-        Math.random() * maxMove;
-
-    button.style.transform =
-        "translateX(" +
-        randomMove +
-        "px)";
-
-    button.textContent =
-        "Try again 😄";
-}
+});
