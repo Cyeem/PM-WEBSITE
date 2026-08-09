@@ -1,0 +1,921 @@
+/* =========================================================
+   PROFESSOR MATUNDURA WEBSITE
+   Built by Calvin
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(92, 68, 180, 0.20), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(219, 169, 63, 0.12), transparent 28%),
+        #070b16;
+    color: #f5f7fb;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(7, 11, 22, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+}
+
+.nav-inner {
+    width: min(1180px, 92%);
+    min-height: 76px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.brand-dot {
+    width: 9px;
+    height: 9px;
+    background: #e8bd5b;
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(232, 189, 91, 0.9);
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-links a {
+    padding: 9px 14px;
+    border-radius: 30px;
+    color: #aeb6c9;
+    font-family: Arial, sans-serif;
+    font-size: 0.82rem;
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    width: min(1180px, 92%);
+    margin: auto;
+    min-height: calc(100vh - 76px);
+    padding: 90px 0;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.hero-content {
+    animation: fadeUp 0.9s ease both;
+}
+
+.eyebrow,
+.mini-title {
+    font-family: Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #dcb85f;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    max-width: 750px;
+    font-size: clamp(3rem, 7vw, 6.4rem);
+    line-height: 0.98;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #e6be60;
+}
+
+.hero-text {
+    max-width: 670px;
+    margin-bottom: 18px;
+    color: #b9c0d0;
+    font-size: 1.04rem;
+}
+
+.hero-text strong {
+    color: #fff;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 34px;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    min-height: 52px;
+    padding: 0 22px;
+    border-radius: 14px;
+    font-family: Arial, sans-serif;
+    font-size: 0.84rem;
+    font-weight: 800;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    color: #16110a;
+    background: linear-gradient(135deg, #f4d477, #dba944);
+    box-shadow: 0 12px 35px rgba(219, 169, 68, 0.18);
+}
+
+.btn-secondary {
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: #f2f4f8;
+}
+
+
+/* =========================================================
+   HERO PHOTO
+   ========================================================= */
+
+.hero-photo {
+    position: relative;
+    animation: fadeUp 1s 0.15s ease both;
+}
+
+.photo-glow {
+    position: absolute;
+    inset: 12% 10%;
+    background: rgba(226, 178, 76, 0.18);
+    filter: blur(70px);
+    border-radius: 50%;
+}
+
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,0.13);
+    background: #101725;
+    box-shadow: 0 35px 100px rgba(0,0,0,0.45);
+}
+
+.main-photo {
+    width: 100%;
+    height: min(620px, 70vh);
+    min-height: 430px;
+    object-fit: cover;
+}
+
+.photo-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    background: linear-gradient(transparent, rgba(3,5,10,0.95));
+}
+
+.caption-small {
+    display: block;
+    color: #d8b65e;
+    font-family: Arial, sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.photo-caption strong {
+    display: block;
+    font-size: 1.3rem;
+}
+
+.caption-badge {
+    padding: 8px 12px;
+    border: 1px solid rgba(232,189,91,0.45);
+    border-radius: 30px;
+    color: #e8bd5b;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro-section,
+.memories-section,
+.message-section,
+.next-section {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 110px 0;
+}
+
+.section-heading {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.section-heading.centered {
+    justify-content: center;
+    text-align: center;
+}
+
+.section-number {
+    font-family: Arial, sans-serif;
+    color: #e2b755;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding-top: 7px;
+}
+
+.section-heading h2,
+.next-content h2 {
+    max-width: 700px;
+    margin-top: 7px;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1.08;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.info-card {
+    padding: 32px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.065),
+        rgba(255,255,255,0.025)
+    );
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(228,185,83,0.35);
+}
+
+.card-icon {
+    display: block;
+    margin-bottom: 22px;
+    color: #e7bd60;
+    font-size: 1.5rem;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.45rem;
+}
+
+.info-card p {
+    color: #9fa8bb;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.message-section {
+    width: min(1000px, 92%);
+}
+
+.message-box {
+    position: relative;
+    padding: 70px;
+    overflow: hidden;
+    border-radius: 30px;
+    border: 1px solid rgba(226,183,82,0.18);
+    background:
+        radial-gradient(circle at 90% 10%, rgba(226,183,82,0.13), transparent 35%),
+        rgba(255,255,255,0.035);
+}
+
+.quote-mark {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: rgba(228,185,83,0.15);
+    font-size: 10rem;
+    line-height: 1;
+}
+
+.message {
+    position: relative;
+    max-width: 800px;
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
+    line-height: 1.35;
+}
+
+.message strong {
+    color: #e6bd5e;
+}
+
+.message-sub {
+    max-width: 700px;
+    margin-top: 25px;
+    color: #9fa8bb;
+}
+
+.signature {
+    margin-top: 30px;
+    color: #e5bd61;
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PHOTO GRID
+   ========================================================= */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr 0.75fr;
+    grid-template-rows: 270px 270px;
+    gap: 15px;
+}
+
+.gallery-card {
+    position: relative;
+    min-height: 200px;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #111827;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.gallery-card.large {
+    grid-row: span 2;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 60%, rgba(0,0,0,0.65));
+    pointer-events: none;
+}
+
+.gallery-card span {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(5,8,15,0.78);
+    color: #e7bd60;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   NEXT SECTION
+   ========================================================= */
+
+.next-section {
+    text-align: center;
+}
+
+.next-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.next-content h2 {
+    margin: 10px auto 20px;
+}
+
+.next-content p:not(.mini-title) {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #aab2c3;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 40px 0;
+}
+
+.footer-inner {
+    width: min(1180px, 92%);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.footer strong {
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+}
+
+.footer p,
+.footer-credit {
+    color: #7e879a;
+    font-size: 0.78rem;
+}
+
+.footer-credit {
+    align-self: center;
+}
+
+
+/* =========================================================
+   JOURNEY PAGE
+   ========================================================= */
+
+.page-hero {
+    width: min(1000px, 92%);
+    margin: auto;
+    padding: 100px 0 65px;
+}
+
+.page-hero h1 {
+    margin: 12px 0 20px;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
+}
+
+.page-hero p {
+    max-width: 700px;
+    color: #aab2c3;
+}
+
+.journey-timeline {
+    width: min(1000px, 92%);
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 30px;
+    padding: 45px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.timeline-number {
+    color: #e5bc5d;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.timeline-content h2 {
+    margin-bottom: 12px;
+    font-size: 2rem;
+}
+
+.timeline-content p {
+    color: #9fa8bb;
+    max-width: 700px;
+}
+
+.timeline-photo {
+    width: 100%;
+    max-width: 700px;
+    height: 390px;
+    margin-top: 25px;
+    border-radius: 22px;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* =========================================================
+   PROGRESS / CELEBRATION
+   ========================================================= */
+
+.progress-section {
+    width: min(1000px, 92%);
+    margin: 0 auto 100px;
+}
+
+.progress-card {
+    padding: 40px;
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(226,183,82,0.12), transparent 35%),
+        rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+}
+
+.progress-label {
+    color: #9fa8bb;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.counter {
+    margin: 10px 0;
+    color: #e8c263;
+    font-family: Arial, sans-serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 900;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #b78325, #f2d377);
+    transition: width 0.4s ease;
+}
+
+.progress-note {
+    margin-top: 15px;
+    color: #7f8899;
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   FINAL PAGE
+   ========================================================= */
+
+.final-wrap {
+    width: min(900px, 92%);
+    min-height: calc(100vh - 76px);
+    margin: auto;
+    padding: 80px 0;
+    display: grid;
+    place-items: center;
+}
+
+.final-card {
+    width: 100%;
+    padding: 70px 50px;
+    text-align: center;
+    border-radius: 35px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(230,189,94,0.13), transparent 40%),
+        rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+}
+
+.final-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.final-card h1 {
+    color: #e8c363;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.final-card p {
+    max-width: 650px;
+    margin: 12px auto;
+    color: #aeb6c7;
+}
+
+.final-message {
+    margin-top: 35px !important;
+    padding: 28px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.045);
+    color: #f3f5f9 !important;
+    font-size: 1.15rem;
+}
+
+.final-buttons {
+    position: relative;
+    min-height: 90px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.no-button {
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 13px;
+    font-weight: 700;
+}
+
+.yes-button {
+    cursor: pointer;
+    border: 0;
+    background: linear-gradient(135deg, #f1d16e, #d9a943);
+    color: #171108;
+    padding: 14px 24px;
+    border-radius: 13px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   CONFETTI
+   ========================================================= */
+
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 14px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: confettiFall 2.5s linear forwards;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity: 1;
+        transform: translateY(-20px) rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding-top: 65px;
+    }
+
+    .hero-photo {
+        max-width: 700px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 280px 280px 280px;
+    }
+
+    .gallery-card.large {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+}
+
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .nav-inner {
+        min-height: 65px;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        padding: 7px 8px;
+        font-size: 0.68rem;
+    }
+
+    .brand {
+        font-size: 0.62rem;
+        letter-spacing: 1px;
+    }
+
+    .hero {
+        width: 90%;
+        padding: 55px 0 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.7rem, 14vw, 4.3rem);
+        letter-spacing: -2px;
+    }
+
+    .hero-text {
+        font-size: 0.94rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .main-photo {
+        height: 470px;
+        min-height: 0;
+    }
+
+    .intro-section,
+    .memories-section,
+    .message-section,
+    .next-section {
+        padding: 75px 0;
+    }
+
+    .section-heading {
+        gap: 12px;
+    }
+
+    .section-heading h2,
+    .next-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .message-box {
+        padding: 40px 25px;
+    }
+
+    .message {
+        font-size: 1.35rem;
+    }
+
+    .photo-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 250px);
+    }
+
+    .gallery-card.large {
+        grid-column: auto;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .timeline-photo {
+        height: 270px;
+    }
+
+    .progress-card {
+        padding: 28px 20px;
+    }
+
+    .final-card {
+        padding: 50px 22px;
+    }
+
+    .final-buttons {
+        flex-direction: column;
+    }
+
+    .yes-button,
+    .no-button {
+        width: 100%;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+}
