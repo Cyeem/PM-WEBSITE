@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Professor Matundura | The Journey</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+background:#050912;
+color:#fff;
+font-family:Arial,Helvetica,sans-serif;
+line-height:1.7;
+}
+
+nav{
+height:75px;
+padding:0 7%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#070d18;
+border-bottom:1px solid #27354b;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+color:#e8c35b;
+font-weight:bold;
+letter-spacing:2px;
+font-size:14px;
+}
+
+nav ul{
+display:flex;
+gap:28px;
+list-style:none;
+}
+
+nav a{
+color:#cbd3df;
+text-decoration:none;
+font-size:13px;
+}
+
+nav a:hover{color:#e8c35b}
+
+.hero{
+padding:100px 7%;
+background:
+radial-gradient(circle at 70% 20%,#192942,transparent 45%),
+#050912;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+}
+
+.label{
+color:#e8c35b;
+letter-spacing:4px;
+font-size:12px;
+font-weight:bold;
+}
+
+h1{
+font-size:65px;
+line-height:1.05;
+margin:18px 0;
+}
+
+.hero p{
+max-width:760px;
+font-size:18px;
+color:#aeb9c9;
+}
+
+.timeline{
+padding:90px 7%;
+}
+
+.timeline-box{
+max-width:900px;
+margin:auto;
+}
+
+.item{
+display:grid;
+grid-template-columns:90px 1fr;
+gap:30px;
+padding:35px 0;
+border-bottom:1px solid #202c40;
+}
+
+.number{
+color:#e8c35b;
+font-size:25px;
+font-weight:bold;
+}
+
+.item h2{
+font-size:28px;
+margin-bottom:8px;
+}
+
+.item p{
+color:#9ba8ba;
+}
+
+.gallery-section{
+background:#09111e;
+padding:90px 7%;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-top:40px;
+}
+
+.gallery img{
+width:100%;
+height:340px;
+object-fit:cover;
+border-radius:18px;
+border:1px solid #2a3850;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+border-color:#e8c35b;
+}
+
+.fund{
+padding:90px 7%;
+}
+
+.fund-box{
+max-width:900px;
+margin:35px auto 0;
+padding:35px;
+border-radius:22px;
+background:#0c1626;
+border:1px solid #2b3a52;
+}
+
+.amount{
+font-size:48px;
+font-weight:bold;
+color:#e8c35b;
+}
+
+.live{
+color:#62d58c;
+font-size:13px;
+}
+
+.progress{
+height:12px;
+background:#1b273a;
+border-radius:20px;
+overflow:hidden;
+margin-top:20px;
+}
+
+.bar{
+height:100%;
+width:1%;
+background:#e8c35b;
+transition:.5s;
+}
+
+.supporters{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:30px;
+}
+
+.supporter{
+background:#111d2e;
+padding:14px;
+border-radius:10px;
+border:1px solid #27364d;
+color:#bdc7d5;
+}
+
+.supporter b{color:#e8c35b}
+
+.btn{
+display:inline-block;
+margin-top:45px;
+padding:15px 28px;
+border-radius:40px;
+background:#e8c35b;
+color:#111;
+font-weight:bold;
+text-decoration:none;
+}
+
+footer{
+padding:45px;
+text-align:center;
+border-top:1px solid #202c40;
+color:#68758b;
+}
+
+footer span{color:#e8c35b}
+
+@media(max-width:800px){
+
+nav{padding:0 15px}
+
+nav ul{gap:8px}
+
+nav a{font-size:10px}
+
+.logo{font-size:9px}
+
+.hero{padding:75px 20px}
+
+h1{font-size:45px}
+
+.timeline{padding:70px 20px}
+
+.item{
+grid-template-columns:1fr;
+gap:5px;
+}
+
+.gallery-section,.fund{padding:70px 20px}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.gallery img{height:420px}
+
+.supporters{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">PROFESSOR MATUNDURA</div>
+
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="journey.html">JOURNEY</a></li>
+<li><a href="final.html">SURPRISE</a></li>
+</ul>
+
+</nav>
+
+
+<header class="hero">
+
+<div class="container">
+
+<div class="label">THE JOURNEY</div>
+
+<h1>Vision → Service → Legacy</h1>
+
+<p>
+Every chapter has a beginning. This one begins with a
+decision to step forward, believe in a vision and prepare
+for the responsibility that comes with leadership.
+</p>
+
+</div>
+
+</header>
+
+
+<section class="timeline">
+
+<div class="timeline-box">
+
+<div class="item">
+<div class="number">01</div>
+<div>
+<h2>The Vision</h2>
+<p>
+A clear vision gives direction. It allows a person to look
+past today's challenges and imagine what tomorrow could
+look like.
+</p>
+</div>
+</div>
+
+<div class="item">
+<div class="number">02</div>
+<div>
+<h2>The Courage</h2>
+<p>
+Taking a new step requires courage. There will always be
+questions, pressure and uncertainty, but every meaningful
+journey demands that first step.
+</p>
+</div>
+</div>
+
+<div class="item">
+<div class="number">03</div>
+<div>
+<h2>The People</h2>
+<p>
+Leadership is ultimately about people. Listening,
+understanding and remaining connected to the community
+will always matter.
+</p>
+</div>
+</div>
+
+<div class="item">
+<div class="number">04</div>
+<div>
+<h2>The Responsibility</h2>
+<p>
+Every opportunity brings responsibility. Stay grounded,
+stay disciplined and never lose sight of why you started.
+</p>
+</div>
+</div>
+
+<div class="item">
+<div class="number">05</div>
+<div>
+<h2>The Legacy</h2>
+<p>
+Positions come and go. The impact made on people's lives
+is what remains.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="gallery-section">
+
+<div class="container">
+
+<div class="label">MEMORIES</div>
+
+<h2 style="font-size:45px;margin-top:10px">
+The Moments Behind The Journey
+</h2>
+
+<div class="gallery">
+
+<img src="images/photo1.jpg" alt="Professor Matundura">
+<img src="images/photo2.jpg" alt="Professor Matundura">
+<img src="images/photo3.jpg" alt="Professor Matundura">
+<img src="images/photo4.jpg" alt="Professor Matundura">
+<img src="images/photo5.jpg" alt="Professor Matundura">
+<img src="images/photo6.jpg" alt="Professor Matundura">
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="fund">
+
+<div class="container">
+
+<div class="label">SUPPORT WALL</div>
+
+<h2 style="font-size:45px;margin-top:10px">
+The Big Bro Support Challenge 😂
+</h2>
+
+<div class="fund-box">
+
+<div style="display:flex;justify-content:space-between;align-items:end">
+
+<div>
+<div style="color:#7d899c;font-size:12px">
+SUPPORT FLOW
+</div>
+
+<div class="amount">
+KES <span id="money">10,000</span>
+</div>
+</div>
+
+<div class="live">● LIVE</div>
+
+</div>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<p style="color:#707d91;font-size:13px;margin-top:8px">
+Celebration target: KES 1,000,000
+</p>
+
+
+<div class="supporters">
+
+<div class="supporter"><b>Calvin</b><br>07********18 — KES 10,000</div>
+<div class="supporter"><b>Kevin</b><br>07********21 — KES 15,000</div>
+<div class="supporter"><b>Brian</b><br>07********44 — KES 12,000</div>
+<div class="supporter"><b>David</b><br>07********63 — KES 20,000</div>
+<div class="supporter"><b>Alex</b><br>07********72 — KES 15,000</div>
+<div class="supporter"><b>Samuel</b><br>07********81 — KES 18,000</div>
+<div class="supporter"><b>James</b><br>07********35 — KES 25,000</div>
+<div class="supporter"><b>Mike</b><br>07********91 — KES 11,000</div>
+<div class="supporter"><b>Peter</b><br>07********52 — KES 16,000</div>
+<div class="supporter"><b>Daniel</b><br>07********26 — KES 14,000</div>
+
+</div>
+
+</div>
+
+<a class="btn" href="final.html">
+THERE'S ONE MORE THING →
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+Built with ❤️ by <span>Calvin</span> • Small Bro
+</footer>
+
+
+<script>
+
+let amount=10000;
+const target=1000000;
+
+setInterval(function(){
+
+if(amount<target){
+
+amount+=5000;
+
+if(amount>target) amount=target;
+
+document.getElementById("money").textContent=
+amount.toLocaleString("en-KE");
+
+document.getElementById("bar").style.width=
+(amount/target*100)+"%";
+
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
